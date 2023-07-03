@@ -1,0 +1,224 @@
+.TableView .ant-table {
+    border-radius: 16px !important;
+  }
+  
+  .TableView .ant-table-thead > tr > th {
+    background-color: #fff;
+  }
+  
+  .TableView .ant-table-cell {
+    color: rgba(0, 0, 0, 0.67);
+    font-size: 16px;
+    font-weight: 400;
+  }
+  
+  .TableView .ant-table-cell ant-table-selection-column {
+    border-radius: 16px !important;
+  }
+  
+  .TableView .ant-table ant-table-bordered {
+    border-radius: 16px !important;
+  }
+  
+  .TableView .ant-table-container {
+    border-radius: 16px !important;
+  }
+  
+  .TableView .ant-table-content {
+    border-radius: 16px !important;
+  }
+  
+  .TableView .ant-table-cell ant-table-selection-column {
+    border-radius: 16px !important;
+  }
+  
+  .TableView
+    .ant-table.ant-table-bordered
+    > .ant-table-container
+    > .ant-table-content
+    > table,
+  .ant-table.ant-table-bordered
+    > .ant-table-container
+    > .ant-table-header
+    > table {
+    border-width: 0px;
+    border-radius: 16px !important;
+  }
+  
+  .TableView
+    .ant-table-container
+    table
+    > thead
+    > tr:first-child
+    th:first-child {
+    border-top-left-radius: 16px !important;
+  }
+  
+  .TableView
+    .ant-table-container
+    table
+    > thead
+    > tr:first-child
+    th:last-child {
+    border-top-right-radius: 16px !important;
+  }
+  
+  .TableView .ant-table-tbody > tr > td {
+    border-bottom: 1px solid #d9d9d9;
+    border-left: 1px solid #d9d9d9;
+  }
+  
+  .TableView .ant-table-tbody > tr > td:last-child {
+    border-right: 1px solid #d9d9d9;
+  }
+  
+  .TableView .ant-table-thead > tr > th:last-child {
+    border-right: 1px solid #d9d9d9;
+  }
+  
+  .TableView .ant-table-thead > tr > th:first-child {
+    border-left: 1px solid #d9d9d9;
+  }
+  
+  .TableView .ant-table-thead > tr > th {
+    border-top: 1px solid #d9d9d9;
+    background: #fbeee9;
+  }
+  
+  .TableView .ant-table-thead {
+    border-radius: 16px;
+  }
+  
+  .TableView .ant-table-thead > tr > th {
+    border-bottom: 1px solid #d9d9d9;
+  }
+  
+  .TableView
+    .ant-table-thead
+    > tr
+    > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+    display: none;
+  }
+  
+  .TableView .ant-table-thead > tr > th {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .TableView .ant-table table td:nth-child(even) {
+    background: #fafbfc;
+  }
+  
+  .TableView .ant-table table td:nth-child(odd) {
+    background: #ffffff;
+  }
+  
+  /* .ant-table-tbody > tr:last-child > td:last-child {
+      border-bottom-right-radius: 16px !important;
+    }
+    
+    .ant-table-tbody > tr:last-child > td:first-child {
+      border-bottom-left-radius: 16px !important;
+    } */
+  
+  .TableView .ant-pagination {
+    background-color: #fbeee9;
+    margin: 0 !important;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border: 1.6px solid rgba(58, 58, 58, 0.2);
+  }
+  
+  .TableView .ant-checkbox-checked .ant-checkbox-inner {
+    background: #e17350;
+    border-color: #e17350;
+  }
+  
+  .TableView .ant-checkbox-wrapper:hover .ant-checkbox-inner,
+  .TableView .ant-checkbox:hover .ant-checkbox-inner,
+  .TableView .ant-checkbox-input:focus + .ant-checkbox-inner {
+    border-color: #e17350;
+  }
+  
+  .TableView .ant-table-tbody > tr.ant-table-row-selected > td {
+    border-color: #d9d9d9;
+  }
+  
+  .TableView .ant-checkbox-indeterminate .ant-checkbox-inner::after {
+    background: #e17350;
+  }
+  
+  .TableView .ant-table-tbody > tr.ant-table-row-selected:hover > td {
+    background: transparent;
+  }
+  
+  .TableView .ant-table-thead > tr > th,
+  .ant-table-tbody > tr > td,
+  .ant-table tfoot > tr > th,
+  .ant-table tfoot > tr > td {
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .TableView .ant-pagination-item {
+    border: 0;
+    background-color: transparent;
+  }
+  
+  .TableView .ant-pagination-item a {
+    border-radius: 3px;
+    color: #091e42;
+  }
+  
+  .TableView .ant-input-affix-wrapper {
+    width: 200px;
+  }
+  
+  .TableView .ant-pagination-item a:hover {
+    border-radius: 3px;
+    color: #091e42;
+  }
+  
+  .TableView .ant-pagination-item-active a {
+    background: #000000;
+    border-radius: 3px;
+    color: #ffffff;
+  }
+  
+  .TableView .ant-pagination-item-active a:hover {
+    color: #ffffff;
+  }
+  
+  .TableView .ant-pagination-item-active {
+    border: 0;
+    background-color: #000000;
+  }
+  
+  .TableView .ant-pagination-item-link {
+    border: 0 !important;
+    background-color: transparent !important;
+  }
+  
+  .TableView .ant-pagination-item-link {
+    color: #000000;
+  }
+  
+  .TableView .ant-pagination-next > button > span {
+    color: #000000;
+  }
+  
+  .TableView .ant-pagination-next > button > span:hover {
+    color: #000000;
+  }
+  

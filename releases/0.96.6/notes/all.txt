@@ -1,0 +1,9 @@
+Features-
+1. Remove the attached files from the device.
+
+Bug Fixes-
+1. Fixed issue with accordian. 
+2. Fixed Aadhaar card issues.
+3. Fixed Signup page issues.
+4. Fixed Bank account verification issue. 
+5. Minor UI fixes.

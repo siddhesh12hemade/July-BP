@@ -1,0 +1,9 @@
+Features-
+1. Implemented GST pull API.
+2. Implemented CRIF partially.
+
+Bug Fixes-
+1. Fixed Aadhar image issue. 
+2. Added button loader. 
+3. Fixed UI issue of Info page and toast message for iOS. 
+4. Minor UI fixes.

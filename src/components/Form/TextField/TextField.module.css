@@ -1,0 +1,15 @@
+.FileUploadSelectLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  color: #000000;
+}
+
+.ErrorStyle {
+  color: orangered
+}

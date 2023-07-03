@@ -1,0 +1,16 @@
+.TableContainer{
+    padding: 20px;
+}
+
+.LabelForGrid {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 23px;
+    color: #000000;
+    display: flex;
+    align-items: flex-end;
+    text-align: justify;
+    margin-right: 80px;
+    margin-bottom: 10px;
+}

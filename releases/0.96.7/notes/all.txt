@@ -1,0 +1,6 @@
+Bug Fixes-
+1. Fixed Documents tile status alignment. 
+2. Fixed PAN card issue.
+3. Fixed Login with OTP issue.
+4. Fixed Form Merce 2 issue.
+5. Minor UI fixes.

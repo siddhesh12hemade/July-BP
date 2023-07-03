@@ -1,0 +1,2 @@
+Bug Fixes-
+1. Fixed Personal PAN Card issue. 

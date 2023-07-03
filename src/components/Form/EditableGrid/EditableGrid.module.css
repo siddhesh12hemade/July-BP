@@ -1,0 +1,110 @@
+.AddResetBtnContainer {
+  padding-top: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.Maincontainer {
+  padding-top: 16px;
+}
+
+.SaveAndEdit {
+  color: #e25c10;
+}
+
+.VerifyButton {
+  background: #e25c10;
+  border-radius: 24px;
+  border: 0;
+  height: 35px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #ffffff;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.VerifyButton:hover {
+  background: #e25c10;
+  color: #ffffff;
+}
+
+.VerifyButton:focus {
+  background: #e25c10;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.ModalAddCloseButtonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.CancelButton {
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.CloseModal {
+  display: flex;
+}
+
+.ModalHeaderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.ModalHeaderContainer>img {
+  cursor: pointer;
+}
+
+.UploadButton {
+  background: #e25c10;
+  margin-top: 2%;
+  border: 0;
+  height: 35px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #ffffff;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.UploadButton:hover {
+  cursor: pointer;
+  background: #e25c10;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.UploadButton:focus {
+  background: #e25c10;
+  color: #ffffff;
+  box-shadow: none;
+}
+.AddButtonAndLableContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.LabelForGrid {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
+  color: #000000;
+  display: flex;
+  align-items: flex-end;
+  text-align: justify;
+  margin-right: 80px;
+}

@@ -1,0 +1,6 @@
+Bug Fixes-
+1. Login issue fixed, Added new Cognito keys for login.
+2. Done to show PAN preview.
+3. Fixed Aadhaar issue.
+4. Fixed multi business partner login issue.
+5. Minor UI fixes.

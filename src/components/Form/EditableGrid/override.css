@@ -1,0 +1,42 @@
+.custom-form-modal-wrapper .ant-form-item {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  
+  .custom-form-modal-wrapper .ant-form-item .ant-form-item-control {
+    width: 100% !important;
+  }
+  
+  .editable-row .ant-form-item-explain {
+    position: absolute;
+    top: 100%;
+    font-size: 12px;
+  }
+
+  .UploadButton {
+    background: #e25c10;
+    margin-top: 2%;
+    border: 0;
+    height: 35px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #ffffff;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .UploadButton:hover {
+    cursor: pointer;
+    background: #e25c10;
+    color: #ffffff;
+    box-shadow: none;
+  }
+  
+  .UploadButton:focus {
+    background: #e25c10;
+    color: #ffffff;
+    box-shadow: none;
+  }

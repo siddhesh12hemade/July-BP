@@ -1,0 +1,3 @@
+Bug Fixes-
+1. Fixed info icon alignment issue in Signup page.
+2. Fixed Forgot Password issue.

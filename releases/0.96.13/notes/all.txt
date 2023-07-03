@@ -1,0 +1,3 @@
+Bug Fixes-
+1. Fixed Bank Statement date display issue.
+2. Fixed CIN label issue.

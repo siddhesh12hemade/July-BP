@@ -1,0 +1,4 @@
+Bug Fixes-
+1. Fixed spelling error in the Error Notification of Signup page.
+2. Fixed Enteprise configuration issue for Signup via invite link.
+3. Minor UI bug fixes.

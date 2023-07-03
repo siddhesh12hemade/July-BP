@@ -1,0 +1,5 @@
+Bug Fixes-
+1. Fixed issue of typing the letter in the Search Bar.
+2. Updated actyv support team hyperlink in menu.
+3. Updated captcha design as per figma.
+4. Fixed cancel button issue while uploading Aadhaar card. 

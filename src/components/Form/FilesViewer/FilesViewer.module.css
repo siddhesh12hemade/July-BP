@@ -1,0 +1,127 @@
+.FileViewerDocumentType {
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+  margin: auto;
+  height: 18.8px
+}
+
+.FileViewerContainer {
+  width: 130px;
+  height: 152px;
+  border-radius: 8px;
+  margin-top: 20px;
+  text-align: right;
+  position: relative;
+  border: 1px solid #e17350;
+}
+
+.FileViewerDocumentPdf {
+  height: 128px;
+  padding-bottom: 0.5px;
+  padding-right: 1px;
+}
+
+.FileViewerCross {
+  height: 16px;
+  width: 16px;
+  background: #ffffff;
+  border: 1px solid #e17350;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.24);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: -8px;
+  margin-right: -8px;
+  z-index: 10;
+}
+
+.FileViewerCrossImg {
+  width: 7px;
+  height: 7px;
+}
+
+.FileViewerDocumentImage {
+  width: 200px;
+  height: 131px;
+  border-bottom-left-radius: 7.3px;
+  border-bottom-right-radius: 7.3px;
+}
+
+.FileViewerInvalidFileType {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+}
+
+.FileUploadContainerRow2 {
+  background: #fbfbfb;
+  border-radius: 0px 0px 8px 8px;
+  padding-top: 34px;
+  padding-bottom: 34px;
+  padding-left: 64px;
+  padding-right: 64px;
+}
+
+.FileUploadButton {
+  background: #e25c10;
+  border-radius: 24px;
+  border: 0;
+  height: 35px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #ffffff;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.FileUploadButton:hover {
+  background: #e25c10;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.FileUploadButton:focus {
+  background: #e25c10;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.FileUploadButton:disabled {
+  background: #b3b3b3;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.FileUploadButton:disabled:hover {
+  background: #b3b3b3;
+  color: #ffffff;
+}
+
+.FileCancelButton {
+  background: transparent;
+  border-radius: 24px;
+  border: 0;
+  height: 35px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #575757;
+  padding-left: 20px;
+  padding-right: 20px;
+}

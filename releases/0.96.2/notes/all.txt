@@ -1,0 +1,13 @@
+Features-
+1. Implemented Remember me.
+
+Bug Fixes-
+1. Fixed hardware back button issue.
+2. Added new links in Login footer.
+3. In menu displayed first and last name.
+4. Added message with loader.
+5. Removed prefilled credentials from Login page.
+6. Updated app icon.
+7. Added new Cognito credential for login.
+8. Minor UI fixes.
+9. Added check for Rooted device.

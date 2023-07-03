@@ -1,0 +1,7 @@
+{
+  "name": "\tBusiness Partner",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

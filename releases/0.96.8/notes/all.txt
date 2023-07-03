@@ -1,0 +1,6 @@
+Bug Fixes-
+1. Fixed Aadhaar E-verification DOB issue. 
+2. Fixed GSTIN issue in All Application page.
+3. Fixed datepicker issue.
+4. Fixed Camera issue for iOS.
+5. Minor UI fixes.

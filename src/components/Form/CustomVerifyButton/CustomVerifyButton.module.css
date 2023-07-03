@@ -1,0 +1,33 @@
+.UploadButton {
+  background: #e25c10;
+  margin-top: 2%;
+  border: 0;
+  height: 35px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #ffffff;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.ErrorLabel {
+  color: #ff4d4f;
+  font-size: 14px;
+  line-height: 1.5715;
+}
+
+.UploadButton:hover {
+  cursor: pointer;
+  background: #e25c10;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.UploadButton:focus {
+  background: #e25c10;
+  color: #ffffff;
+  box-shadow: none;
+}
