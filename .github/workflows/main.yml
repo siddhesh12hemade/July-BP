@@ -1,0 +1,143 @@
+name: Build iOS IPA
+
+on:
+  push:
+    tags:
+      - dev*
+      - qa*
+      - uat*
+      - prod*
+        
+env:
+  IONIC_CLI_VERSION: 6.20.8 
+  NODE_VERSION: 19.5.0
+  LC_ALL: en_US.UTF-8
+  LANG: en_US.UTF-8
+  BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
+  P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
+  BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
+  KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}  
+
+jobs:
+  build:
+    runs-on: macOS-12
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Set current date environment variable
+      run: echo "currentDate=$(date +"%Y%m%d-%H%M%S")" >> $GITHUB_ENV  
+      
+    - name: Setting up Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+
+    - name: Installing Ionic CLI
+      run: |
+        npm install -g ionic
+        ionic config set -g daemon.updates false
+        
+    - name: Installing NPM
+      run: npm install npm@9.3.1 -g
+      
+    - name: Installing Capacitor CLI
+      run: npm install -g @capacitor/cli@4.4.0
+      
+    - name: Installing Cocoapods
+      run: sudo gem install cocoapods
+
+    - name: Cache Pods dependencies
+      uses: actions/cache@v1
+      with:
+          path: ios/Pods
+          key: ${{ runner.OS }}-pods-cache-${{ hashFiles('**/ios/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-pods-cache-
+            
+    - name : Installing Legacy-peer-deps 
+      run: sudo npm install react-scripts --legacy-peer-deps 
+    
+    - name: Building iOS App
+      run: sudo npm run build-${{ vars.ENVIRONMENT }}
+      env: 
+       CI: false
+    
+    - name: Importing Project settings
+      run: 'echo "$conf_file" > project.pbxproj'
+      shell: bash
+      env:
+        conf_file: ${{ secrets.PROJECT_PBXPROJ }}
+    
+    - name: Importing ExportOptions.plist Settings
+      run: 'echo "$EOPL_file" > ExportOptions.plist'
+      shell: bash
+      env:
+        EOPL_file: ${{ secrets.EOPL }} 
+        
+    - name: Importing Info.plist Settings
+      run: 'echo "$INFO_PLIST" > Info.plist'
+      shell: bash
+      env:
+        INFO_PLIST: ${{ secrets.INFO_PLIST }}
+        
+    - name: Updating App Version details
+      run: |
+        sed 's/CURRENT_PROJECT_VERSION = 1/CURRENT_PROJECT_VERSION = ${{ vars.CURRENT_PROJECT_VERSION_IOS }}/g' $PWD/project.pbxproj > tmpfile && mv tmpfile $PWD/project.pbxproj
+        sed 's/MARKETING_VERSION = 1/MARKETING_VERSION = ${{ vars.MARKETING_VERSION_IOS }}/g' $PWD/project.pbxproj > tmpfile && mv tmpfile $PWD/project.pbxproj
+        sed 's/PRODUCT_BUNDLE_IDENTIFIER = ai.actyv.businesspartner/PRODUCT_BUNDLE_IDENTIFIER = ${{ vars.PRODUCT_BUNDLE_IDENTIFIER_IOS }}/g' $PWD/project.pbxproj > tmpfile && mv tmpfile $PWD/project.pbxproj
+        sed 's/INFOPLIST_KEY_CFBUNDLEDISPLAYNAME = "actyv for Business Partner";/INFOPLIST_KEY_CFBUNDLEDISPLAYNAME = "${{ vars.INFOPLIST_KEY_CFBUNDLEDISPLAYNAME_IOS }}";/g' $PWD/project.pbxproj > tmpfile && mv tmpfile $PWD/project.pbxproj
+        sed 's/ai.actyv.businesspartner/${{ vars.PRODUCT_BUNDLE_IDENTIFIER_IOS }}/g' $PWD/ExportOptions.plist > tmpfile && mv tmpfile $PWD/ExportOptions.plist
+
+    - name: Running capacitor commands   
+      run: |
+        npx cap add ios
+        npx cap sync ios
+        npx cap add android
+        npm run resources  
+        cp $PWD/project.pbxproj $PWD/ios/App/App.xcodeproj/
+        cp $PWD/Info.plist $PWD/ios/App/App/
+        cat $PWD/ios/App/App/Info.plist
+        
+    - name: Installing Apple Distribution certificate and Provisioning profile 
+      run: |
+          # create variables
+          CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
+          PP_PATH=$RUNNER_TEMP/build_pp.mobileprovision
+          KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
+          # import certificate and provisioning profile from secrets
+          echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode -o $CERTIFICATE_PATH
+          echo -n "$BUILD_PROVISION_PROFILE_BASE64" | base64 --decode -o $PP_PATH
+          # create temporary keychain
+          security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
+          security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
+          # import certificate to keychain
+          security import $CERTIFICATE_PATH -P "$P12_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
+          security list-keychain -d user -s $KEYCHAIN_PATH
+          # apply provisioning profile
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles   
+   
+    - name: Archiving App
+      run: |
+          cd ios/App/ && xcodebuild archive \
+            -workspace App.xcworkspace \
+            -scheme App \
+            -destination 'generic/platform=iOS' \
+            -archivePath $PWD/build/App.xcarchive         
+            
+    - name: Exporting App
+      run: |
+          xcodebuild \
+            -exportArchive \
+            -archivePath $PWD/ios/App/build/App.xcarchive \
+            -exportPath $PWD/ios/App/build \
+            -exportOptionsPlist $PWD/ExportOptions.plist 
+           
+    - name: Deploying IPA
+      uses: actions/upload-artifact@v2
+      with:
+        name: App-${{ vars.PRODUCT_BUNDLE_IDENTIFIER_IOS }}-${{ vars.MARKETING_VERSION_IOS }}-${{ env.currentDate }}.ipa
+        path: ios/App/build/App.ipa
